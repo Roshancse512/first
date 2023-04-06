@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table</title><br>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1 align="Center" style="color:darkblue">User Login</h1>
+
+	<center>
+		<table border="2" >
+			<thead>
+				<tr>
+					<th style="color:brown">USER NAME</th>
+					<td><input type="text" name="Uname" id="Uname"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th style="color:brown">EMAIL</th>
+					<td><input type="text" name="email" id="email"></td>
+				</tr>
+				<tr>
+					<th style="color:brown">PASSWORD</th>
+					<td><input type="password" name="PASSWORD" id="PASSWORD"></td>
+				</tr>
+				<tr id="Submit" align="center">
+					<td colspan="2" ><input type="button" name="Submit" id="Submit" value="Submit" onclick="SubmitRow()"></td>	
+					</tr>
+					<tr align="center">
+						<td colspan="2"><input type="Reset"></td>	
+				</tr>
+			</tbody>
+		</table> 
+		<h1>             </h1>
+
+		<table border="2" id="show">
+			<thead>
+				<tr>
+					<th style="color:brown">USERNAME</th>
+					<th style="color:brown">EMAIL</th>
+					<th style="color:brown">PASSWORD</th>
+				</tr>
+				<tr id="Clear" align="center">
+					<td colspan="3"><input type="button" name="Clear" id="Clear" value="Clear" onclick="ClearRow()"></td>
+					</tr>
+			</thead>
+		</table>
+	</center>
+	
+	<script>
+		
+		var list1 = [];
+		var list2 = [];
+		var list3 = [];
+
+		var n = 1;
+		var x = 0;
+
+		function SubmitRow(){
+
+			var SubmitRown = document.getElementById('show');
+			var NewRow = SubmitRown.insertRow(n);
+
+			list1[x] = document.getElementById("Uname").value;
+			list2[x] = document.getElementById("email").value;
+			list3[x] = document.getElementById("PASSWORD").value;
+
+			var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+			var cel3 = NewRow.insertCell(2);
+
+			cel1.innerHTML = list1[x];
+			cel2.innerHTML = list2[x];
+			cel3.innerHTML = list3[x];
+
+			n++;
+			x++;
+		}
+		function ClearRow(){
+			var rowCount = show.rows.length;
+        for (var i = rowCount - 1; i > 0; i--) 
+            show.deleteRow(i);
+		}
+	</script>
+</body>
+</html>
